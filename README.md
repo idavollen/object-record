@@ -85,28 +85,29 @@ The implementation of history list of object changes is written with spesical at
 ## User Case
 A typical scenario for applying the object-record is an alternative implementation of time travling of Redux state. 
 
-1.[**_History Updating_**] Each time *Redux dispatch* is called, the current state in store is updated by reducers, therefore we can call **_objHistory.update(currentState, action)_**. In this way, the entire state changes in store is recorded.
-		```javascript
-		function dispatch(action) {
-			...
-			try {
-		      isDispatching = true
-		      currentState = currentReducer(currentState, action)
-		      objHistory.update(currentState, action)
-		    } finally {
-		      isDispatching = false
-		    }
-		    ...
-		}
-        ```
+1.[**_History Updating_**] Each time *Redux dispatch* is called, the current state in store is updated by reducers, therefore we can call **_objHistory.update(currentState, action)_** to keep record of all changes.
+
+```javascript
+	function dispatch(action) {
+		...
+		try {
+	      isDispatching = true
+	      currentState = currentReducer(currentState, action)
+	      objHistory.update(currentState, action)
+	    } finally {
+	      isDispatching = false
+	    }
+	    ...
+	}
+```
+	
+
 
 2.[**_Time travelling_**] Redux store exports an extra function called, **_travel_** to clients of Redux so that UI could be time travelling in state changes of application store:
 ```javascript
 		...
 		  function travel(nr) {
-		    console.log('currentState = ', currentState)
 		    let cs = objHistory.go(nr).cur.obj
-		    console.log(`after going ${nr} steps, currentState = `, cs)
 		    if (cs) {
 		      currentState = cs
 		      const listeners = currentListeners = nextListeners
@@ -131,7 +132,7 @@ A typical scenario for applying the object-record is an alternative implementati
 ```
 
 
-![Time Travelling in Redux with object-record](https://github.com/idavollen/object-record/blob/master/object-record.gif "Time Travelling in Redux with object-record")
+![Time Travelling in Redux with object-record](https://raw.githubusercontent.com/idavollen/object-record/master/object-record.gif "Time Travelling in Redux with object-record")
 
 
 ## Open Source Code

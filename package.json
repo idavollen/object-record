@@ -1,6 +1,6 @@
 {
   "name": "object-record",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a simple object-record makes it possible to time travel among changes to a a complex javascript json object",
   "browser": "dist/redux.js",
   "main": "lib/index.js",
