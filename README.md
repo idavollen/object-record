@@ -131,7 +131,7 @@ A typical scenario for applying the object-record is an alternative implementati
 ```
 
 
-
+![Time Travelling in Redux with object-record](https://github.com/idavollen/object-record/blob/master/object-record.gif "Time Travelling in Redux with object-record")
 
 
 ## Open Source Code
