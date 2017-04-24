@@ -1,0 +1,19 @@
+.redux-state-travel-time button {
+    top: -30px;
+    position: absolute;
+    border: 2px solid darkgray;
+    background: black;
+    border-radius: 5px;
+    padding: 3px 8px;
+    color: white;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+button.left {
+    left: 0;
+}
+
+button.right {
+    right: 0;
+}
